@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Menu, Breadcrumb } from 'antd';
-// import getRouter from 'router/router';
+import { Link } from 'react-router-dom';
+import getRouter from 'router/router';
+
 require('./App.css');
 
 export default class App extends Component {
@@ -14,9 +16,10 @@ export default class App extends Component {
               defaultSelectedKeys={['2']}
               style={{ lineHeight: '64px' }}
             >
-              <Menu.Item key="1">导航一</Menu.Item>
-              <Menu.Item key="2">导航二</Menu.Item>
-              <Menu.Item key="3">导航三</Menu.Item>
+              <Menu.Item key="1"><Link to="/">首页</Link></Menu.Item>
+              <Menu.Item key="2"><Link to="/page1">Page1</Link></Menu.Item>
+              <Menu.Item key="3"><Link to="/counter">Counter</Link></Menu.Item>
+              <Menu.Item key="4"><Link to="/userinfo">UserInfo</Link></Menu.Item>
             </Menu>
           </div>
         </div>
@@ -29,7 +32,9 @@ export default class App extends Component {
             </Breadcrumb>
           </div>
           <div className="ant-layout-container">
-            <div style={{ height: 210 }} />
+            <div style={{ height: 210 }} >
+              {getRouter()}
+            </div>
           </div>
         </div>
         <div className="ant-layout-footer">
