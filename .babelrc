@@ -6,6 +6,6 @@
   ],
   "plugins": [
     "transform-runtime",
-    ["antd", { "libraryName": "antd" }]
+    ["antd", { "libraryName": "antd", "style": "css" }]
   ]
 }
