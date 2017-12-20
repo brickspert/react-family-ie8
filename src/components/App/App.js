@@ -31,8 +31,12 @@ export default class App extends Component {
               defaultSelectedKeys={['2']}
               style={{ lineHeight: '64px' }}
             >
-              <Menu.Item key="1"><Link to="/">首页</Link></Menu.Item>
-              <Menu.Item key="2"><Link to="/device">设备查询</Link></Menu.Item>
+              <Menu.Item key="1">
+                <Link to="/">首页</Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/device">设备查询</Link>
+              </Menu.Item>
             </Menu>
           </div>
         </div>
@@ -44,7 +48,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="ant-layout-footer">
-                Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+            重庆长安汽车股份有限公司 © 2017
         </div>
       </div>
     );

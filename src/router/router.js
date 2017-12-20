@@ -7,8 +7,8 @@ import Bundle from './Bundle';
 const createComponent = component => () => (
   <Bundle load={component}>
     {
-            Component => (Component ? <Component /> : <Loading />)
-        }
+        Component => (Component ? <Component /> : <Loading />)
+    }
   </Bundle>
 );
 

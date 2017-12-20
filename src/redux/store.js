@@ -1,8 +1,8 @@
-import {createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import combineReducers from './reducers.js';
 
-import promiseMiddleware from './middleware/promiseMiddleware'
+import promiseMiddleware from './middleware/promiseMiddleware';
 
-let store = createStore(combineReducers, applyMiddleware(promiseMiddleware));
+const store = createStore(combineReducers, applyMiddleware(promiseMiddleware));
 
 export default store;

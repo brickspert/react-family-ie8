@@ -46,18 +46,20 @@ class Index extends Component {
             position: 'absolute',
         }}
       >
-        <FormItem
-          label="VIN"
-        >
+        <FormItem wrapperCol={{ span: 24 }}>
           <Input
+            addonBefore="VIN"
+            size="default"
             placeholder="请输入17位车架号"
             {...vinProps}
           />
         </FormItem>
-        <Button type="primary" htmlType="submit">查询</Button>
+        <FormItem wrapperCol={{ span: 24, offset: 10 }}>
+          <Button type="primary" htmlType="submit">查询</Button>
+        </FormItem>
       </Form>
     );
   }
 }
 
-export default Form.create({})(Index);
+export default createForm({})(Index);
