@@ -5,7 +5,7 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime",
-    ["antd", { "libraryName": "antd", "style": "css" }]
+    "react-hot-loader/babel",
+    "transform-runtime"
   ]
 }

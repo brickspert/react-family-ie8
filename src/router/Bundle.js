@@ -33,4 +33,4 @@ class Bundle extends Component {
     }
 }
 
-export default Bundle
+export default Bundle;
