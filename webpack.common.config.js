@@ -1,14 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const commonConfig = {
     entry: {
         app: [
+            "es5-shim", "es5-shim/es5-sham",
             "babel-polyfill",
             path.join(__dirname, 'src/index.js')
         ],
-        vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
     },
     output: {
         path: path.join(__dirname, './dist'),
@@ -17,18 +17,19 @@ const commonConfig = {
         publicPath: "/"
     },
     module: {
-        rules: [{
+        postLoaders: [
+            {
+                test: /\.js$/,
+                loaders: ['export-from-ie8/loader']
+            }
+        ],
+        loaders: [{
             test: /\.js$/,
-            use: ['babel-loader?cacheDirectory=true'],
+            loaders: ['babel-loader?cacheDirectory=true'],
             include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg|gif)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 8192
-                }
-            }]
+            loader: 'url-loader?limit=8192'
         }]
     },
     plugins: [
@@ -36,17 +37,14 @@ const commonConfig = {
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.html')
         }),
-        new webpack.HashedModuleIdsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'runtime'
-        })
+        new es3ifyPlugin()
     ],
 
     /* 文件路径优化 无论在哪个路径下 都可以采用引用模块的方式引用 */
     resolve: {
         alias: {
             pages: path.join(__dirname, 'src/pages'),
-            component: path.join(__dirname, 'src/component'),
+            components: path.join(__dirname, 'src/components'),
             router: path.join(__dirname, 'src/router'),
             actions: path.join(__dirname, 'src/redux/actions'),
             reducers: path.join(__dirname, 'src/redux/reducers'),
