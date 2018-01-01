@@ -13,16 +13,23 @@ const devConfig = {
     /*src文件夹下面的以.js结尾的文件，要使用babel解析*/
     /*cacheDirectory是用来缓存编译结果，下次编译加速*/
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loaders: ["style-loader", "css-loader", "postcss-loader"]
-        }]
+        loaders: [
+            {
+                test: /\.css$/,
+                loaders: ["style-loader", "css-loader", "postcss-loader"]
+            },
+            {
+                test: /\.less$/,
+                loaders: ["style-loader", "css-loader", "less-loader"]
+            }
+        ]
     },
     devServer: {
         port: 8081,
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         host: '0.0.0.0',
+        hot: true,
     }
 };
 
