@@ -1,23 +1,9 @@
-# react-family-ie8
+https://github.com/brickspert/blog/issues/1
 
-预览地址：[https://brickspert.github.io/react-family-ie8/index.html](https://brickspert.github.io/react-family-ie8/index.html)
 
-该框架是基于[react-family](https://github.com/brickspert/react-family)修改的兼容ie8的框架。
+react-redux提供了一个方法connect
+容器组件就是使用 store.subscribe() 从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。你可以
+手工来开发容器组件，但建议使用 React Redux 库的 connect() 方法来生成，这个方法做了性能优化来避免很多不必要的重复渲染。
 
-修改流程放在[这里](https://github.com/brickspert/blog/issues/5)
-
-希望您能和我一起完善这个框架！欢迎`fork`
-
-## 开发坏境启动
-
-1. `npm install`
-2. `npm start`
-3. 浏览器打开[http://localhost:8080](http://localhost:8080)
-
-备注：如果要在局域网访问，请修改`package.json`-`start`命令，增加`--public 192.168.x.x`，后面为你的局域网`ip`。
-
-## 生产坏境部署
-
-1. `npm run build`
-
-2. 拷贝dist文件夹至服务器即可
+connect接收两个参数，一个mapStateToProps,就是把redux的state，转为组件的Props，还有一个参数是mapDispatchToprops,
+就是把发射actions的方法，转为Props属性函数

@@ -1,15 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const es3ifyPlugin = require('es3ify-webpack-plugin');
 
-commonConfig = {
+const commonConfig = {
     entry: {
         app: [
             "es5-shim", "es5-shim/es5-sham",
             "babel-polyfill",
             path.join(__dirname, 'src/index.js')
-        ]
+        ],
     },
     output: {
         path: path.join(__dirname, './dist'),
@@ -38,25 +37,20 @@ commonConfig = {
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.html')
         }),
-        // new webpack.HashedModuleIdsPlugin(),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendor'
-        // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'runtime'
-        // }),
         new es3ifyPlugin()
     ],
 
+    /* 文件路径优化 无论在哪个路径下 都可以采用引用模块的方式引用 */
     resolve: {
         alias: {
             pages: path.join(__dirname, 'src/pages'),
             components: path.join(__dirname, 'src/components'),
             router: path.join(__dirname, 'src/router'),
             actions: path.join(__dirname, 'src/redux/actions'),
-            reducers: path.join(__dirname, 'src/redux/reducers')
+            reducers: path.join(__dirname, 'src/redux/reducers'),
+            mock: path.join(__dirname, 'mock')
         }
-    }
+    },
 };
 
 module.exports = commonConfig;

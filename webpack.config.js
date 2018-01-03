@@ -37,7 +37,6 @@ const publicConfig = {
         }),
         new ExtractTextPlugin('[name].[contenthash:5].css')
     ]
-
 };
 
 module.exports = merge(commonConfig, publicConfig);
